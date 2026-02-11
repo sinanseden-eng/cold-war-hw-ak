@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold War Chronicles: Interactive Lesson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Merriweather', serif; background-color: #f8fafc; color: #1e293b; }
+        h1, h2, h3, .btn-font { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .highlight { background-color: #fef08a; transition: background-color 0.5s ease; border-radius: 2px; padding: 0 2px; }
+        .hidden-answer { display: none; margin-top: 0.5rem; color: #166534; font-weight: bold; font-style: italic; }
+        .soviet-bg { background-color: #ef4444; color: white; }
+        .usa-bg { background-color: #1e40af; color: white; }
+        
+        /* Smooth fade in for answers */
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-slate-900 text-white p-6 shadow-lg border-b-4 border-yellow-500 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl tracking-widest">Cold War Chronicles</h1>
+                <p class="text-slate-400 text-sm italic font-sans">Video Analysis & Text Comprehension</p>
+            </div>
+            <div class="space-x-4">
+                <a href="#part1" class="btn-font hover:text-yellow-400 transition">Video</a>
+                <a href="#part2" class="btn-font hover:text-yellow-400 transition">Reading</a>
+                <a href="#part3" class="btn-font hover:text-yellow-400 transition">Grammar</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow p-4 md:p-8 max-w-7xl mx-auto w-full space-y-12">
+
+        <!-- PART 1: VIDEO -->
+        <section id="part1" class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+            <div class="bg-slate-800 p-4 text-white flex justify-between items-center">
+                <h2 class="text-xl tracking-wide">Part 1: The Space Race (Video Timeline)</h2>
+                <span class="text-xs bg-yellow-500 text-black px-2 py-1 rounded font-bold">Watch & Answer</span>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 p-6">
+                <!-- Video Container -->
+                <div class="aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden shadow-lg h-full min-h-[300px]">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/xvaEvCNZyoE" title="The Space Race (1955-1975)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <!-- Questions -->
+                <div class="space-y-6">
+                    <div class="question-item">
+                        <p class="font-bold text-slate-700 mb-2">1. Which country took the lead at the very beginning of the race in 1957?</p>
+                        <button onclick="toggleVideoAnswer('v1')" class="btn-font text-xs bg-slate-200 hover:bg-slate-300 px-3 py-1 rounded transition text-slate-600">Check Answer</button>
+                        <div id="v1" class="hidden-answer fade-in">The Soviet Union (USSR).</div>
+                    </div>
+
+                    <div class="question-item">
+                        <p class="font-bold text-slate-700 mb-2">2. What was the name of the American mission that successfully landed on the moon in 1969?</p>
+                        <button onclick="toggleVideoAnswer('v2')" class="btn-font text-xs bg-slate-200 hover:bg-slate-300 px-3 py-1 rounded transition text-slate-600">Check Answer</button>
+                        <div id="v2" class="hidden-answer fade-in">Apollo 11.</div>
+                    </div>
+
+                    <div class="question-item">
+                        <p class="font-bold text-slate-700 mb-2">3. How did the rivalry change in 1975? (Hint: Look for the handshake in space).</p>
+                        <button onclick="toggleVideoAnswer('v3')" class="btn-font text-xs bg-slate-200 hover:bg-slate-300 px-3 py-1 rounded transition text-slate-600">Check Answer</button>
+                        <div id="v3" class="hidden-answer fade-in">The Apollo-Soyuz Test Project marked a symbolic end, showing cooperation as astronauts shook hands.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 2: READING COMPREHENSION (SIDE BY SIDE) -->
+        <section id="part2" class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+            <div class="bg-slate-800 p-4 text-white flex justify-between items-center">
+                <h2 class="text-xl tracking-wide">Part 2: Reading Comprehension Check</h2>
+                <span class="text-xs bg-green-500 text-black px-2 py-1 rounded font-bold">Interactive Text</span>
+            </div>
+
+            <div class="flex flex-col lg:flex-row h-[800px]">
+                <!-- LEFT: Questions Panel -->
+                <div class="lg:w-1/3 bg-slate-50 p-6 overflow-y-auto border-r border-slate-200 space-y-6">
+                    <h3 class="text-slate-400 text-sm mb-4 border-b pb-2">Questions</h3>
+
+                    <!-- Q1 -->
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200">
+                        <p class="text-sm font-bold mb-3">1. Why did Soviet scientists share their knowledge freely?</p>
+                        <button onclick="highlightAnswer('a1', 'h1')" class="btn-font w-full bg-blue-100 text-blue-700 hover:bg-blue-200 py-2 rounded text-sm transition flex items-center justify-center gap-2">
+                            <span>🔍 Locate in Text</span>
+                        </button>
+                        <div id="a1" class="hidden-answer fade-in text-xs mt-3 border-t pt-2">Because there were no barriers from patent laws or corporate secrets, allowing them to accelerate progress.</div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200">
+                        <p class="text-sm font-bold mb-3">2. Who did NASA work with to build rockets? Was it just the government?</p>
+                        <button onclick="highlightAnswer('a2', 'h2')" class="btn-font w-full bg-blue-100 text-blue-700 hover:bg-blue-200 py-2 rounded text-sm transition flex items-center justify-center gap-2">
+                            <span>🔍 Locate in Text</span>
+                        </button>
+                        <div id="a2" class="hidden-answer fade-in text-xs mt-3 border-t pt-2">They partnered with thousands of private contractors (companies) like Boeing and IBM. It was not just the government.</div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200">
+                        <p class="text-sm font-bold mb-3">3. What was a specific "hidden cost" or negative consequence for each country?</p>
+                        <button onclick="highlightAnswer('a3', 'h3')" class="btn-font w-full bg-blue-100 text-blue-700 hover:bg-blue-200 py-2 rounded text-sm transition flex items-center justify-center gap-2">
+                            <span>🔍 Locate in Text</span>
+                        </button>
+                        <div id="a3" class="hidden-answer fade-in text-xs mt-3 border-t pt-2">
+                            <strong>USSR:</strong> Shortages of basic goods; Soyuz 1 tragedy.<br>
+                            <strong>USA:</strong> National anxiety; wasting money on Arms Race.
+                        </div>
+                    </div>
+                    
+                    <!-- Q4 -->
+                    <div class="bg-white p-4 rounded shadow-sm border border-slate-200">
+                        <p class="text-sm font-bold mb-3">4. What did the Soviet Union focus its entire national energy on?</p>
+                        <button onclick="highlightAnswer('a4', 'h4')" class="btn-font w-full bg-blue-100 text-blue-700 hover:bg-blue-200 py-2 rounded text-sm transition flex items-center justify-center gap-2">
+                            <span>🔍 Locate in Text</span>
+                        </button>
+                        <div id="a4" class="hidden-answer fade-in text-xs mt-3 border-t pt-2">Scientific advancement for the benefit of the people.</div>
+                    </div>
+
+                    <!-- Q5 -->
+                     <div class="bg-white p-4 rounded shadow-sm border border-slate-200">
+                        <p class="text-sm font-bold mb-3">5. What happened to US households as a result of the free market system?</p>
+                        <button onclick="highlightAnswer('a5', 'h5')" class="btn-font w-full bg-blue-100 text-blue-700 hover:bg-blue-200 py-2 rounded text-sm transition flex items-center justify-center gap-2">
+                            <span>🔍 Locate in Text</span>
+                        </button>
+                        <div id="a5" class="hidden-answer fade-in text-xs mt-3 border-t pt-2">They were flooded with new technologies like washing machines, TVs, and cars.</div>
+                    </div>
+
+                     <!-- Q6 -->
+                     <div class="bg-white p-4 rounded shadow-sm border border-slate-200">
+                        <p class="text-sm font-bold mb-3">6. How were high achievers rewarded in the Soviet system vs. the American system?</p>
+                        <button onclick="highlightAnswer('a6', 'h6')" class="btn-font w-full bg-blue-100 text-blue-700 hover:bg-blue-200 py-2 rounded text-sm transition flex items-center justify-center gap-2">
+                            <span>🔍 Locate in Text</span>
+                        </button>
+                        <div id="a6" class="hidden-answer fade-in text-xs mt-3 border-t pt-2">
+                            <strong>USSR:</strong> National honor, security, respect.<br>
+                            <strong>USA:</strong> Unlimited personal advancement and wealth.
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: Text Panel -->
+                <div class="lg:w-2/3 bg-white p-8 overflow-y-auto font-serif leading-relaxed text-sm">
+                    <h3 class="text-slate-400 text-sm mb-4 border-b pb-2">Source Articles</h3>
+
+                    <!-- Article 1 -->
+                    <div class="mb-10">
+                        <h4 class="font-bold text-red-600 uppercase mb-2">Perspective A: The Triumph of the Collective (USSR)</h4>
+                        
+                        <p class="mb-3"><strong>The Power of Planning:</strong> During the Cold War, the Soviet Union demonstrated... <span id="h4-text">the USSR focused its entire national energy on scientific advancement for the benefit of the people.</span> This centralized approach allowed for rapid industrialization.</p>
+                        
+                        <p class="mb-3"><strong>First to the Stars:</strong> The proof of this system's success was the Space Race... <span id="h1-text">By removing the barriers of patent laws and corporate secrets, Soviet scientists shared knowledge freely, accelerating progress without the need for commercial gain.</span></p>
+
+                        <p class="mb-3"><strong>Ambition and The State:</strong> Critics often ask: "What about the individual?" In the Soviet system, ambition was redirected. <span id="h6-text-a">High achievers were celebrated with national honor and security, not personal wealth. A scientist who excelled had a secure future and the respect of their peers.</span></p>
+
+                        <p class="mb-3"><strong>The Burden of Winning:</strong> However, this intense competition had a dark side... <span id="h3-text-a">While the nation won the "race" for rockets, many citizens faced shortages of basic goods.</span> ... <span id="h3-text-b">the rush to launch for the 50th anniversary... resulted in tragedy... cosmonaut Vladimir Komarov died due to parachute failure.</span></p>
+                    </div>
+
+                    <hr class="border-2 border-slate-100 my-8">
+
+                    <!-- Article 2 -->
+                    <div>
+                        <h4 class="font-bold text-blue-800 uppercase mb-2">Perspective B: The Free Market Frontier (USA)</h4>
+                        
+                        <p class="mb-3"><strong>The Spirit of Enterprise:</strong> The American success story is a testament to the power of the individual... <span id="h5-text">flooding households with new technologies like washing machines, televisions, and cars, improving daily life.</span></p>
+                        
+                        <p class="mb-3"><strong>Winning the Moon Race:</strong> While the USSR took an early lead... <span id="h2-text">NASA didn't work alone; it partnered with thousands of private contractors who competed to build the best components.</span> This blend of public goal-setting and private innovation proved superior.</p>
+
+                        <p class="mb-3"><strong>No Ceiling on Potential:</strong> The American system promised that if you worked harder than others, you could progress further. <span id="h6-text-b">This promise of unlimited personal advancement motivated people to push boundaries...</span></p>
+
+                        <p class="mb-3"><strong>The Cost of Constant Pressure:</strong> Yet, this high-stakes rivalry came with a heavy price... <span id="h3-text-c">created an atmosphere of national anxiety. This "pressure cooker" environment led to the Arms Race, where trillions of dollars were spent on nuclear weapons.</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 3: THE REPORTER'S DESK -->
+        <section id="part3" class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+            <div class="bg-slate-800 p-4 text-white flex justify-between items-center">
+                <h2 class="text-xl tracking-wide">Part 3: The Reporter's Desk</h2>
+                <span class="text-xs bg-blue-500 text-black px-2 py-1 rounded font-bold">Grammar Practice</span>
+            </div>
+
+            <div class="p-6">
+                <p class="italic text-slate-500 mb-6">Task: Rewrite the direct quotes into Reported Speech. Use the verb bank.</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- Q1 -->
+                    <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">1. President JFK: "We choose to go to the moon..."</p>
+                        <button onclick="toggleGrammar('g1')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g1" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Announced that:</strong><br>
+                                JFK <em>announced that</em> they chose to go to the moon...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">2. Soviet Engineer: "Our planning allows us to advance faster..."</p>
+                        <button onclick="toggleGrammar('g2')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g2" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Claimed that:</strong><br>
+                                The engineer <em>claimed that</em> their planning allowed them to advance faster.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">3. Igor Gouzenko: "I have secret documents... You must believe me!"</p>
+                        <button onclick="toggleGrammar('g3')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g3" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-blue-100 p-2 rounded text-xs text-blue-900 border border-blue-200">
+                                <strong>Infinitive:</strong><br>
+                                Gouzenko <em>claimed to have</em> secret documents.
+                            </div>
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>That-Clause:</strong><br>
+                                Gouzenko <em>insisted that</em> he had secret documents.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">4. RCMP Officer: "You should stay in the apartment..."</p>
+                        <button onclick="toggleGrammar('g4')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g4" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-blue-100 p-2 rounded text-xs text-blue-900 border border-blue-200">
+                                <strong>Object + Infinitive:</strong><br>
+                                The officer <em>advised him to stay</em> in the apartment.
+                            </div>
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>That-Clause:</strong><br>
+                                The officer <em>advised that</em> he stay/should stay in the apartment.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Q5 -->
+                    <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">5. Komarov: "I absolutely refuse to fly this mission!"</p>
+                        <button onclick="toggleGrammar('g5')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g5" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-blue-100 p-2 rounded text-xs text-blue-900 border border-blue-200">
+                                <strong>Refused + Inf:</strong><br>
+                                Komarov <em>refused to fly</em> the mission.
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q6 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">6. US Citizen: "Will the testing damage our environment?"</p>
+                        <button onclick="toggleGrammar('g6')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g6" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Wondered if:</strong><br>
+                                The citizen <em>wondered if</em> the testing would damage the environment.
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q7 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">7. Newspaper: "Soviet Union launched Sputnik!"</p>
+                        <button onclick="toggleGrammar('g7')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g7" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Reported that:</strong><br>
+                                The newspaper <em>reported that</em> the Soviet Union had launched Sputnik.
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q8 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">8. NASA Director: "We succeeded because we worked with thousands..."</p>
+                        <button onclick="toggleGrammar('g8')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g8" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Explained that:</strong><br>
+                                He <em>explained that</em> they succeeded because they worked with thousands...
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q9 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">9. KGB Agent: "If you betray us, there will be consequences..."</p>
+                        <button onclick="toggleGrammar('g9')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g9" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Threatened that:</strong><br>
+                                He <em>threatened that</em> if he betrayed them, there would be consequences.
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q10 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">10. Scientist: "Why don't we share our research...?"</p>
+                        <button onclick="toggleGrammar('g10')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g10" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-orange-100 p-2 rounded text-xs text-orange-900 border border-orange-200">
+                                <strong>Suggested + Gerund:</strong><br>
+                                The scientist <em>suggested sharing</em> their research.
+                            </div>
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Suggested that:</strong><br>
+                                The scientist <em>suggested that</em> they share their research.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q11 -->
+                    <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">11. Politician: "I did not authorize the launch."</p>
+                        <button onclick="toggleGrammar('g11')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g11" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-orange-100 p-2 rounded text-xs text-orange-900 border border-orange-200">
+                                <strong>Denied + Gerund:</strong><br>
+                                The politician <em>denied authorizing</em> the launch.
+                            </div>
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Denied that:</strong><br>
+                                The politician <em>denied that</em> he had authorized the launch.
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q12 (UPDATED) -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">12. Historian: "It's a shame we spent so much money on weapons..."</p>
+                        <button onclick="toggleGrammar('g12')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g12" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-orange-100 p-2 rounded text-xs text-orange-900 border border-orange-200">
+                                <strong>Regretted + Gerund:</strong><br>
+                                The historian <em>regretted spending</em> so much money on weapons.
+                            </div>
+                            <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Regretted that:</strong><br>
+                                The historian <em>regretted that they had spent</em> so much money on weapons.
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q13 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">13. Soviet Leader: "We have decided to beat the Americans..."</p>
+                        <button onclick="toggleGrammar('g13')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g13" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-blue-100 p-2 rounded text-xs text-blue-900 border border-blue-200">
+                                <strong>Decided + Inf:</strong><br>
+                                The leader <em>decided to beat</em> the Americans to Mars.
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q14 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">14. The Public: "We praise the astronauts for their bravery."</p>
+                        <button onclick="toggleGrammar('g14')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g14" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-orange-100 p-2 rounded text-xs text-orange-900 border border-orange-200">
+                                <strong>Praised + for + ing:</strong><br>
+                                The public <em>praised the astronauts for being</em> incredibly brave.
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Q15 -->
+                     <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                        <p class="font-bold text-sm mb-2">15. Spy Handler: "I insist that you steal the blueprints..."</p>
+                        <button onclick="toggleGrammar('g15')" class="btn-font text-xs bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Show Answer</button>
+                        <div id="g15" class="hidden-answer mt-3 space-y-1">
+                            <div class="bg-orange-100 p-2 rounded text-xs text-orange-900 border border-orange-200">
+                                <strong>Insisted on + ing:</strong><br>
+                                The handler <em>insisted on stealing</em> the blueprints.
+                            </div>
+                             <div class="bg-green-100 p-2 rounded text-xs text-green-900 border border-green-200">
+                                <strong>Insisted that:</strong><br>
+                                The handler <em>insisted that</em> he steal the blueprints.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple Toggle for Video Questions
+        function toggleVideoAnswer(id) {
+            const el = document.getElementById(id);
+            el.style.display = el.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Logic for highlighting text and showing answer
+        function highlightAnswer(answerId, highlightId) {
+            // Show Answer text
+            const ans = document.getElementById(answerId);
+            ans.style.display = 'block';
+
+            // Handle Highlights in text
+            // Special case for split answers (like Q3 and Q6 which have parts A, B, C)
+            if (highlightId === 'h3') {
+                const h3a = document.getElementById('h3-text-a');
+                if (h3a) h3a.classList.add('highlight');
+                const h3b = document.getElementById('h3-text-b');
+                if (h3b) h3b.classList.add('highlight');
+                const h3c = document.getElementById('h3-text-c');
+                if (h3c) h3c.classList.add('highlight');
+            } else if (highlightId === 'h6') {
+                const h6a = document.getElementById('h6-text-a');
+                if (h6a) h6a.classList.add('highlight');
+                const h6b = document.getElementById('h6-text-b');
+                if (h6b) h6b.classList.add('highlight');
+            } else {
+                const textSpan = document.getElementById(highlightId + '-text');
+                if(textSpan) textSpan.classList.add('highlight');
+            }
+        }
+
+        // Toggle for Grammar
+        function toggleGrammar(id) {
+            const el = document.getElementById(id);
+            el.style.display = el.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
